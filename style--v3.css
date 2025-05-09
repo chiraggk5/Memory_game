@@ -1,0 +1,104 @@
+/* style.css */
+
+/* 1. Import retro “Press Start 2P” font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* 2. Global page styles */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Press Start 2P', cursive;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+/* 3. Title */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* 4. Game info panel */
+#game-info {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+/* 5. End-game message */
+#result {
+  font-size: 1rem;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* 6. Card grid layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+/* 7. Card container (white “frame” + shadow) */
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  perspective: 600px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 8. Inner flipping element */
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 9. Front and back faces sit on white, inside the card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* 10. Card front specifics (holds the image) */
+.card-front {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 11. Ensure your images fill the card-front */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
